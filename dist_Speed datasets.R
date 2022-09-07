@@ -1,5 +1,13 @@
 library(tidyverse)
+View(cars)
 head(cars, 10)
+cars%>%
+  ggplot(aes(x=speed, y= dist))+
+  geom_point(col="red")+
+  theme_bw()+
+  labs(x = "Speed(miles/hour)", 
+       y= "distance covered before stopping(miles)", 
+       title= "Distance vs Speed Plot")
 cars%>%
   lm(dist~speed, data= .)%>%
   summary()
